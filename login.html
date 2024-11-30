@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="text/html">
+    <link href="login.css" rel="stylesheet" type="text/css">
+    <title>Login</title>
+</head>
+
+<body class="body1">
+    <div class="div1">
+        <h1 class="login_header">Login</h1>
+        <form action="login.php" method="POST">
+            <input class="user" type="text" placeholder="Username" name="username" onfocus="this.placeholder=''"
+                onblur="this.placeholder='Username'">
+            <input class="pwd" type="password" placeholder="Password" name="password" onfocus="this.placeholder=''"
+                onblur="this.placeholder='Password'">
+            <div class="terms">
+                <input type="checkbox" id="check">
+                <label for="checkbox">Agree with our <a href="*">Terms & Conditions</a></label>
+            </div>
+            <button class="login_button" name="button">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>
