@@ -1,54 +1,25 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-    /*$userName = $_POST['userName'];
-    $password = $_POST['password'];
+//Establishing connection
+$conn = mysqli_connect('localhost', 'root', '', 'login');
+//Check connection
+if ($conn) {
+    echo 'Connected';
+} else {
+    echo 'Failed';
+}
+//Check for submitted form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password']; 
 
-    //Database connection
-    $conn = new mysqli('localhost', 'root', '', 'login_form');
-    if($conn->connect_error){
-        die('Connection Failed :'.$conn->connect_error);
+    //Creating MySQL Query to insert data into the database
+    $sql = "INSERT INTO credentials (username, password) VALUES ('$username', '$password')";
+    //Check if the data is sended
+    if (mysqli_query($conn, $sql)) {
+        echo "Data sended";
+    } else {
+        echo "Error";
     }
-    else{
-        $stmt = $conn->prepare("Insert into 'credentials'(userName, password) values(?, ?)");
-        $stmt ->bind_param("ss", $userNmae, $password);
-        $stmt ->execute();
-        $stmt ->close();
-        $conn ->close();
-    }*/
+}
 
-    $servername = 'localhost';
-    $username = 'root';
-    $pwd = '';
-    $dbname = 'login_form';
-    $userName = $_POST['userName'];
-    $password = $_POST['password'];
-    $conn = new mysqli($servername, $username, $pwd);
-   
-
-    if(!$conn){
-        die("Connection failed:" . mysqli_connect_error());
-    }
-    else{
-        echo ("Connect Successfully");
-    }
-    $sql = "INSERT INTO credentials (user, password) VALUES(?, ?)";
-    $sql ->bind_param("ss", $userName, $password);
-    $sql ->execute()
 ?>
